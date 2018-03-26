@@ -167,7 +167,7 @@
                         <!-- <td><img src="http://yellowstone.cs.ucla.edu/wis/img/logo1.jpg" width="200px" alt="ScAI"> </td> -->
                         <td>    <div class="title-container">
                                 <!-- <h1 class="title">CANaLI: a Context-Aware controlled Natural Language Interface</h1> -->
-                                <h1 class="title">Interroga il database dei dati sul turismo in Puglia!</h1>
+                                <h1 class="title">Chiedi informazioni sul turismo in Puglia!</h1>
                             </div>
                         </td>
                     </tr>

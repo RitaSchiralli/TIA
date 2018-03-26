@@ -46,20 +46,23 @@ var CanaliInput2 = (function () {
             self.tokenList.removeClass(CanaliInput2.CSS_CLASSES['focused']);
         })
             .keyup(function (event) {
-            self.resizeInput();
+            		self.resizeInput();
         })
             .blur(function (event) {
             self.resizeInput();
         })
             .keydown(function (event) {
-            var code = event.keyCode;
+            var code = event.which || event.keyCode;
             if (code !== CanaliInput2.BACKSPACE && code !== CanaliInput2.ENTER &&
                 self.getCurrentState() == AutocompleteObject.FINAL_STATE_SF) {
                 return false; //cannot type anymore
             }
-            /*switch (code) {
-                case CanaliInput2.LEFT:
+            switch (code) {
+            	case CanaliInput2.HOME:
+            	case CanaliInput2.END:
+            	case CanaliInput2.LEFT:
                 case CanaliInput2.RIGHT:
+                case CanaliInput2.CTRL:
                     break; //just move the cursor in input
                 case CanaliInput2.UP:
                     self.selectNextDropdownItem();
@@ -103,14 +106,14 @@ var CanaliInput2 = (function () {
                     self.hideDropdown();
                     return true;
                 default:
-                    if (String.fromCharCode(event.which)) {*/
+                    if (String.fromCharCode(event.which)) {
                         // set a timeout just long enough to let this function finish.
                         setTimeout(function () {
                             self.doAutocompleterSearch();
-                        }, 0);
-                    /*}
+                        }, 5);
+                    }
                     break;
-            }*/
+            }
         })
        ;
         //create the tokenList, that appears to be a complex input, inside the inputDiv
@@ -381,6 +384,15 @@ var CanaliInput2 = (function () {
     CanaliInput2.prototype.getAutocompleteObject = function (item) {
         return item.data('token');
     };
+    if (!String.prototype.endsWith) {
+                	String.prototype.endsWith = function(search, this_len) {
+                		if (this_len === undefined || this_len > this.length) {
+                			this_len = this.length;
+                		}
+                		return this.substring(this_len - search.length, this_len) === search;
+                	};
+                }
+    
     // Do a search and show the "searching" dropdown if the input is longer
     // than $(input).data("settings").minChars
     CanaliInput2.prototype.doAutocompleterSearch = function () {
@@ -399,14 +411,16 @@ var CanaliInput2 = (function () {
             var self_1 = this;
             
             if (query.length >= this.minChars || query.length > 0 && (query[0] === '?' || query[0] === '.')) {
-                this.showDropdownMessage("Searching");
+                this.showDropdownMessage("Continua a scrivere");
                 mapDiv.html("");
+                
+                
+                
                 if ((query.endsWith(".") || query.endsWith("?")) && (div.val() == ""))
                 	{
                 		this.hideDropdown();
                 		div.html("<img src='img/processing.gif' />");
-                		setTimeout(div.html("<b>Ciao!</b>"),3000)
-                		/*ajaxParams.type = "GET";
+                		ajaxParams.type = "GET";
                 		ajaxParams.url = this.w2vUrl + "?q=" + query;
 
                 		ajaxParams.success = function(result)
@@ -414,17 +428,16 @@ var CanaliInput2 = (function () {
                             	div.html(result);
                             	query = null;
                             }
-                        setTimeout(function () {
-                            $.ajax(ajaxParams);
-                        }, 0);*/
-                	}
-                else
-                	{
-                	div.html("");
-                	mapDiv.html("");
+                		$.ajax(ajaxParams);
+                        return false;
                 	}
             }
         }
+        else
+        {
+        	div.html("");
+            mapDiv.html("");
+        }        
     };
     /*CanaliInput2.prototype.runAutocompleterSearch = function (query) {
         var self = this;
@@ -939,6 +952,9 @@ var CanaliInput2 = (function () {
     CanaliInput2.UP = 38;
     CanaliInput2.RIGHT = 39;
     CanaliInput2.DOWN = 40;
+    
+    CanaliInput2.CTRL = 17;
+    
     CanaliInput2.NUMPAD_ENTER = 108;
     CanaliInput2.COMMA = 188;
     CanaliInput2.QUESTION_MARK = 219;
