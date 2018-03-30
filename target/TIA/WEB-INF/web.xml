@@ -5,7 +5,6 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
   <display-name>Archetype Created Web Application</display-name>
   
-  
   <servlet>
     <servlet-name>W2VQAServlet</servlet-name>
     <servlet-class>edu.ucla.cs.scai.canali.webapp.W2VQAServlet</servlet-class>
@@ -42,6 +41,16 @@
   </servlet>
   
   
+  <!-- <servlet>
+  	<servlet-name>default</servlet-name>
+  	<servlet-class>src/main/resources/index</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>default</servlet-name>
+  	<url-pattern>/index</url-pattern>
+  </servlet-mapping> -->
+
   <servlet-mapping>
     <servlet-name>W2VQAServlet</servlet-name>
     <url-pattern>/w2v</url-pattern>
@@ -85,9 +94,7 @@
         </listener-class>
   </listener>
   <welcome-file-list>
-    <welcome-file>about.jsp</welcome-file>
-    <welcome-file>indexold.jsp</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>qald.jsp</welcome-file>
+    <welcome-file>TIA.jsp</welcome-file>
+    <welcome-file>CANaLI.jsp</welcome-file>
   </welcome-file-list>
 </web-app>

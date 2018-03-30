@@ -24,27 +24,34 @@
     </dependency>
     
     <dependency>
-            <groupId>javax</groupId>
-            <artifactId>javaee-web-api</artifactId>
-            <version>6.0</version>
-            <scope>provided</scope>
-            <!-- <scope>compile</scope> -->
-        </dependency>
-        <dependency>
-            <groupId>edu.ucla.cs.canali</groupId>
-            <artifactId>canaliCore</artifactId>
-            <version>0.01</version>
-        </dependency>
+    	<groupId>javax</groupId>
+        <artifactId>javaee-web-api</artifactId>
+        <version>6.0</version>
+        <scope>provided</scope>
+    </dependency>
+    <dependency>
+    	<groupId>edu.ucla.cs.canali</groupId>
+    	<artifactId>canaliCore</artifactId>
+    	<version>0.01</version>
+    </dependency>
         
-        <dependency>
-            <groupId>org.apache.jena</groupId>
-            <artifactId>jena-arq</artifactId>
-            <version>3.1.0</version>
+    <dependency>
+    	<groupId>org.apache.jena</groupId>
+        <artifactId>jena-arq</artifactId>
+        <version>3.1.0</version>
+    </dependency>
+    
+    
+    <dependency>
+            <groupId>org.apache.lucene</groupId>
+            <artifactId>lucene-core</artifactId>
+            <version>5.5.2</version>
         </dependency>
+    
     
   </dependencies>
   <build>
-    <finalName>TIA</finalName>
+    <finalName>TIA</finalName>    
     
     <plugins>
             <plugin>

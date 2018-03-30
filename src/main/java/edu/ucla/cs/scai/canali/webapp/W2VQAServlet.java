@@ -24,7 +24,7 @@ import edu.ucla.cs.scai.canali.core.index.utils2.GooglePoint;
 /**
  * Servlet implementation class W2VQAServlet
  */
-@WebServlet("/W2VQAServlet")
+//@WebServlet("/W2VQAServlet")
 public class W2VQAServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	public static final String QUERY = "q";

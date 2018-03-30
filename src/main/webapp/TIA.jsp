@@ -49,8 +49,8 @@
         <link rel="stylesheet" type="text/css" href="++resource++uniba.xdvskin.stylesheets/slidehpdipartimento.min.css" /> -->
       <!-- fine Stili uniba -->
     	
-        <!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
         <script type="text/javascript" src="src/AutocompleteObject.js"></script>
         
         

@@ -7,9 +7,7 @@ package edu.ucla.cs.scai.canali.webapp;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
-
 import edu.ucla.cs.scai.canali.core.index.TokenIndex;
-import edu.ucla.cs.scai.canali.core.index.utils2.TIAIndex;
 
 /**
  *
@@ -26,9 +24,11 @@ public class MyAppServletContextListener
     @Override
     public void contextInitialized(ServletContextEvent arg0) {
     	
-    	String path = "C:/Users/seven/Documents/RITA/Universita/workspace/TIA/index";
+    	String path = "C:/Users/seven/Documents/RITA/Universita/workspace/TIA/src/main/resources/index";
+//    	String path = "D:/index";
+		System.out.println("PERCORSO = " + path);
     	System.setProperty("kb.index.dir", path);
-    	System.setProperty("sparql.endpoint",path+"/TIAInstancesAdjusted.owl");
+    	System.setProperty("sparql.endpoint", path+"/TIAInstancesAdjusted.owl");
     	
     	//TIAIndex.main(path);
     	

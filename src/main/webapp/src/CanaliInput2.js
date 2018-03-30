@@ -401,35 +401,29 @@ var CanaliInput2 = (function () {
         var mapDiv = $("#" + this.map)
         var div = $("#" + this.resultDivId);
         var ajaxParams = {};
+        ajaxParams.data = {};
         
         div.addClass("result-container").css("font-size","20px");
         
         if (query && query.length) {
-            if (this.selectedToken != null) {
-                this.deselectToken(this.selectedToken, CanaliInput2.POSITION['AFTER']);
-            }
-            var self_1 = this;
             
             if (query.length >= this.minChars || query.length > 0 && (query[0] === '?' || query[0] === '.')) {
                 this.showDropdownMessage("Continua a scrivere");
                 mapDiv.html("");
                 
-                
-                
                 if ((query.endsWith(".") || query.endsWith("?")) && (div.val() == ""))
                 	{
                 		this.hideDropdown();
                 		div.html("<img src='img/processing.gif' />");
-                		ajaxParams.type = "GET";
-                		ajaxParams.url = this.w2vUrl + "?q=" + query;
+                		ajaxParams.type = "POST";
+                		ajaxParams.url = this.w2vUrl;
+                		ajaxParams.data[CanaliInput2.QUERY] = query;
 
                 		ajaxParams.success = function(result)
                             {
                             	div.html(result);
-                            	query = null;
                             }
                 		$.ajax(ajaxParams);
-                        return false;
                 	}
             }
         }
